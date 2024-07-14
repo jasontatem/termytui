@@ -22,11 +22,47 @@ If you're in the market for an actual usable TUI framework, you have better opti
 
 ### Hello World
 
-from termytui.tui import Tui
+    from termytui.tui import Tui
 
-tt = Tui()
+    tt = Tui()
 
-panel = tt.create_panel(20, 5, 'Hello')
-def content_func(panel):
-    panel.print_to_pos(1, 1, 'Hello World!')
-panel.content_func = content_func
+    panel = tt.create_panel(20, 5, 'Hello')
+    def content_func(panel):
+        panel.print_to_pos(1, 1, 'Hello World!')
+    panel.content_func = content_func
+
+### Features
+
+- Framebuffer-esque rendering (if you want you can completely ignore the UI stuff and just scribble on the buffer)
+- UIPanel objects that can have their content defined directly, or can contain one or more UIElement objects
+- UIPanels can be moved without affecting their contents
+- UIPanels have Z depth and will be correctly rendered above/below other panels based
+- Status line populated by StatusElement objects for displaying small bits of always-visible info
+- Predefined widgets for input fields, simple graphs, status line elements
+- Input handling with globally-defined handlers, then UIPanel and UIElement specific handlers
+- Very little crap getting in your way
+- Not caring much (at all) about tons of colors or sixel graphics or any of that mess
+
+### Requirements
+
+The only non-stdlib requirement is the readchar module
+
+### Demos
+
+All demos can be run from the root of the cloned repo. Just run python3 [demo].py
+
+#### test_ui.py
+
+This is my general playgorund for testing out features. Its contents can be tame or wild depending on what I was doing at the last commit
+
+#### plasmapanels.py
+
+Oldschool plasma effects applied to bouncing UIPanels
+
+#### invaders.py
+
+Space Invaders clone
+
+#### titwste.py
+
+TITWSTE Is The World's Shittiest Text Editor. Extremely minimal text editor
