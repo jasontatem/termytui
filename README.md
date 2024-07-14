@@ -45,7 +45,7 @@ If you're in the market for an actual usable TUI framework, you have better opti
 
 ### Requirements
 
-The only non-stdlib requirement is the readchar module
+The only non-stdlib requirement is the [readchar](https://pypi.org/project/readchar/) module
 
 ### Demos
 
