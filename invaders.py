@@ -282,7 +282,8 @@ class EnemyGrid():
                     num_right_alive += 1
         if num_left_alive == 0:  # we can trim the left column
             for i in range(0, self.rows):
-                self.grid[i].pop(0)
+                if len(self.grid[i]) > 0:
+                    self.grid[i].pop(0)
             self.columns -= 1
             self.top_left_x += self.enemy_x_gap
             self.game.tui.log('Removing leftmost column')
