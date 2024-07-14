@@ -17,8 +17,9 @@ If you're in the market for an actual usable TUI framework, you have better opti
 ### Usage
 
 1. Copy the contents of the "termytui" folder into your project. Or do something better with package management or something I don't care just make it resolvable by python
-2. At a minimum, import the Tui object from termytui.tui
-3. Create UIPanels and fill them with UIElements. Use StatusElements to add items to the status line
+2. Install readchar: pip3 install readchar
+3. At a minimum, import the Tui object from termytui.tui
+4. Create UIPanels and fill them with UIElements. Use StatusElements to add items to the status line
 
 ### Hello World
 
@@ -40,12 +41,26 @@ If you're in the market for an actual usable TUI framework, you have better opti
 - Status line populated by StatusElement objects for displaying small bits of always-visible info
 - Predefined widgets for input fields, simple graphs, status line elements
 - Input handling with globally-defined handlers, then UIPanel and UIElement specific handlers
+- Terminal resize detection
 - Very little crap getting in your way
 - Not caring much (at all) about tons of colors or sixel graphics or any of that mess
 
 ### Requirements
 
 The only non-stdlib requirement is the [readchar](https://pypi.org/project/readchar/) module
+
+### Standard Global Hotkeys
+
+- Alt-Q: Quit
+- Alt-Z: Full redraw, useful for resolving render errors
+- Alt-N: Select the next UIPanel
+- Alt-M: Move the currently selected UIPanel
+
+### Standard Panel Hotkeys
+
+- Alt-X: Close panel
+- PgUp: Select prior UIElement
+- PgDn: Select next UIElement
 
 ### Demos
 
