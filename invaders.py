@@ -10,6 +10,59 @@ import random
 fgcolors = list(control_chars['fgcolor'].keys())
 fgcolors.remove('black')
 
+background = [
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '                                                                                                                                                     ',
+            '      .                                                                                                                                              ',
+            '      |                                  (_)                                                                                                         ',
+            '   ___|___           +-------------\    % | %         ______________             |                                                                   ',
+            '  / - - - |       @  | ]       ]    \   | | |    /\   \____//______/    ____  /--+--\    | | |                      (-                 ___________   ',
+            ' | - - - -|       |  |  ]       ]    \  |/_\|   / o\   \==//=|     |   ||| ||    |        \|/           .          /           +      ( =  =  =  =)  ',
+            '  \o - - /        +--|   ]       ]    \ /===\  / o o\   \//- | [   |   | || |    |     ____|____________|__________|           |\    (             ) ',
+            '   \ -O /            |    ]       ]    | (|) |/ o  o \   | - | [   |___|| |||    |    /  ________________________  \  |^^^^^|  | \  ( =  =  =  =  = )',
+            '    | ||        ____/______]_      ]   |  |  | o  o  o\__| - | [   |  / || ||\   |   /  |           )            |  \/| . . |--+  \(                 ',
+            '    | ||       /  _|__|______|      ]  |  |  |  o   o    \ - | [   |_/|| || |#\  |  /   |           )            |   \| . . |  |   \ =  =  =  =  =  =',
+            '___/__||\_____/__/_|__|__|__|]_______]_|__|__|____________\__|_____||||||||||##\_|_/____|___________)____________|____\_____|__|____\________________'
+        ]
+
 
 class EnemyGrid():
     def __init__(self, game, rows, columns):
@@ -499,10 +552,11 @@ class GameController():
         self.tick_count += 1
 
     def clear_panel(self):
-        self.panel.blank()
+        self.panel.blank(char=' ')
 
     def render_game_over_screen(self):
         self.clear_panel()
+        self.draw_background()
         self.panel.create_border()
         title_line_1 = [
             ' ####    ###    #   #   #####',
@@ -537,6 +591,7 @@ class GameController():
 
     def render_round_win_screen(self):
         self.clear_panel()
+        self.draw_background()
         self.panel.create_border()
         title_line = [
             ' ####    ###    #   #    ####   ####     ###    #####   #   #   #        ###    #####   #####    ###    #   #    ####   ##',
@@ -562,6 +617,7 @@ class GameController():
 
     def render_start_screen(self):
         self.clear_panel()
+        self.draw_background()
         self.panel.create_border()
         title_line_1 = [
             ' ####  ####     ###     ####   #####',
@@ -605,6 +661,7 @@ class GameController():
             self.render_game_over_screen()
         elif self.game_mode == 'game_running':
             self.clear_panel()
+            self.draw_background()
             self.panel.create_border()
             self.render_player(self.player_x)
             self.render_shields()
@@ -640,6 +697,11 @@ class GameController():
                     this_y = self.shield_y_top_pos + y
                     if self.shields[s][y][x]:
                         self.panel.print_to_pos(this_x, this_y, colorize(shield_char, shield_color, effects=['bold']))
+
+    def draw_background(self):
+        for i in range(len(background)):
+            if background[i] != '                                                                                                                                                     ':
+                self.panel.print_to_pos(1, i, background[i])
             
 
 if __name__ == '__main__':

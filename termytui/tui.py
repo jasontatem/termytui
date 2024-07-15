@@ -358,11 +358,11 @@ class UIPanel():
             for j in range(1, self.y_size):
                 self.layer.points[(i, j)] = ' '
 
-    def blank(self):
-        # fills the layer with spaces
+    def blank(self, char=' '):
+        # fills the layer with an identical element
         for x in range(0, self.x_size):
             for y in range(0, self.y_size):
-                self.layer.points[(x, y)] = ' '
+                self.layer.points[(x, y)] = char
 
     def clear_panel(self, blank=False):
         self.layer.points = dict()

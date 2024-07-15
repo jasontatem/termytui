@@ -41,6 +41,7 @@ If you're in the market for an actual usable TUI framework, you have better opti
 - Status line populated by StatusElement objects for displaying small bits of always-visible info
 - Predefined widgets for input fields, simple graphs, status line elements
 - Input handling with globally-defined handlers, then UIPanel and UIElement specific handlers
+- Background layer drawn behind all panels, supports dynamic content
 - Terminal resize detection
 - Very little crap getting in your way
 - Not caring much (at all) about tons of colors or sixel graphics or any of that mess
